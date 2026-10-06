@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Playas de Santa Marta · Reservas</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#fbf6ea;--card:#fff;--ink:#0b2e3a;--mut:#5c7480;--sea:#0e6b7f;--deep:#08404f;--sand:#ecd9a8;--sun:#f0a313;--ok:#1f8a5b;--bad:#c2413a;--line:#e3d9bd;font-family:'Bricolage Grotesque',system-ui,sans-serif}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#081e27;--card:#0e2d39;--ink:#eaf4f6;--mut:#8fb0ba;--sea:#2aa6bf;--deep:#0b3b4a;--sand:#6b5a2d;--line:#1d4553}}
+:root[data-theme="dark"]{--bg:#081e27;--card:#0e2d39;--ink:#eaf4f6;--mut:#8fb0ba;--sea:#2aa6bf;--deep:#0b3b4a;--sand:#6b5a2d;--line:#1d4553}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);line-height:1.5}
+header{background:var(--deep);color:#fff;padding:18px 16px 0}
+header h1{margin:0;font-size:clamp(1.5rem,5vw,2.4rem);font-weight:800;letter-spacing:-.02em}
+header p{margin:2px 0 12px;opacity:.8;font-size:.95rem}
+nav{display:flex;gap:4px;overflow-x:auto}
+nav button{border:0;background:transparent;color:#cfe6ec;padding:10px 14px;font:inherit;cursor:pointer;border-radius:10px 10px 0 0;white-space:nowrap}
+nav button.on{background:var(--bg);color:var(--ink);font-weight:600}
+main{max-width:1000px;margin:0 auto;padding:16px}
+section{display:none}section.on{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:14px}
+h2{font-size:1.15rem;margin:0 0 10px}h3{margin:14px 0 6px;font-size:1rem}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+label{display:block;font-size:.85rem;color:var(--mut)}
+input,select{width:100%;font:inherit;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+input[type=checkbox]{width:auto}
+button.p{background:var(--sun);color:#2a1c00;border:0;font:inherit;font-weight:600;padding:11px 18px;border-radius:10px;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--sea);outline-offset:2px}
+.note{font-size:.85rem;color:var(--mut)}
+.pill{display:inline-block;padding:2px 10px;border-radius:99px;background:var(--sand);color:var(--ink);font-size:.8rem}
+.beach{overflow-x:auto;border-radius:12px;border:1px solid var(--line)}
+.sea{background:linear-gradient(var(--sea),var(--deep));color:#fff;padding:10px 14px;font-weight:600;min-width:max-content}
+.sand{background:var(--sand);padding:8px 10px;min-width:max-content}
+.rl{font-size:.75rem;color:var(--ink);margin:4px 0 2px;position:sticky;left:0}
+.row{display:flex;gap:6px;margin-bottom:6px}
+.s{width:46px;height:46px;border-radius:9px;border:2px solid;font:inherit;font-size:.78rem;font-weight:600;cursor:pointer;flex:none;line-height:1.1}
+.s small{display:block;font-weight:400;font-size:.62rem}
+.s.free{background:#fff;border-color:var(--ok);color:#12633f}.s.sel{background:var(--sun);border-color:#8a5a00;color:#2a1c00}
+.s.occ{background:var(--bad);border-color:var(--bad);color:#fff;cursor:not-allowed;opacity:.85}
+.lg span{margin-right:14px;font-size:.85rem}
+.it{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.q{display:flex;align-items:center;gap:6px}.q button{width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.bar{height:16px;background:var(--sea);border-radius:5px;min-width:2px}
+.br{display:grid;grid-template-columns:130px 1fr 90px;gap:8px;align-items:center;margin:5px 0;font-size:.9rem}
+.tot{font-size:1.5rem;font-weight:800}
+table{width:100%;border-collapse:collapse;font-size:.85rem}td,th{padding:4px;text-align:left}td input{padding:5px}
+.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 10%,var(--card))}
+</style></head><body>
+<header><h1>Playas de Santa Marta</h1><p>Reserva sillas, carpas o sombrilla para pareja, y pide todo desde tu puesto.</p>
+<nav id="nav"><button data-v="r" class="on">Reservar</button><button data-v="x">Comida y más</button><button data-v="a">Atracciones</button><button data-v="s">Reportes</button><button data-v="c">Convenio</button></nav></header>
+<main>
+<section id="v-r" class="on">
+<div class="card"><h2>1. Quién reserva</h2><div class="g">
+<div><label>Tipo de documento<select id="dt"><option>Cédula de ciudadanía</option><option>Cédula de extranjería</option><option>Pasaporte</option><option>Tarjeta de identidad</option><option>PPT</option></select></label></div>
+<div><label>Número de documento<input id="dn" inputmode="numeric" autocomplete="off"></label></div>
+<div><label>Nombre completo<input id="nm"></label></div></div></div>
+<div class="card"><h2>2. Playa, fecha y servicio</h2><div class="g">
+<div><label>Playa<select id="pl"></select></label></div>
+<div><label>Fecha<input type="date" id="f"></label></div>
+<div><label>Servicio<select id="tp"><option value="s">Solo sillas</option><option value="c">Carpa con 3 sillas</option><option value="p">Sombrilla para pareja (2 sillas + mesa)</option></select></label></div>
+<div id="qw"><label>Cantidad de sillas<input type="number" id="qt" min="1" value="2"></label></div>
+<div id="xw"><label>Sillas adicionales por carpa<input type="number" id="ex" min="0" value="0"></label></div></div>
+<p><label><input type="checkbox" id="nt"> Quedarme hasta las 4 a. m. (recargo por silla)</label></p>
+<p class="note" id="info"></p></div>
+<div class="card" id="mapc"><h2>3. Elige tu puesto</h2><div class="lg"><span>🟩 Disponible</span><span>🟨 Elegida</span><span>🟥 Ocupada</span><span id="cnt" class="pill"></span></div><p class="note" id="mnote"></p><div class="beach" id="map"></div></div>
+<div class="card"><h2>4. Pago y resumen</h2><label>Forma de pago<select id="pg"><option value="qr">QR (medios virtuales)</option><option value="ref">Código de referencia de pago</option><option value="ef">Efectivo en punto de recaudo</option></select></label>
+<div id="sum"></div><p><button class="p" id="go">Confirmar reserva</button></p><div id="res"></div></div>
+</section>
+<section id="v-x"></section><section id="v-a"></section>
+<section id="v-s"></section><section id="v-c"></section>
+</main>
+<script>
+const $=s=>document.querySelector(s),e=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])),m$=n=>'$'+Math.round(n).toLocaleString('es-CO');
+// nombre, largo aproximado en metros, puestos por fila, filas (largos referenciales: ajústalos con medidas oficiales)
+const PL={rodadero:['El Rodadero',1500,30,3],taganga:['Taganga',300,12,2],blanca:['Playa Blanca',800,16,2],tortuga:['Cabo Tortuga',250,10,2],pozos:['Pozos Colorados',600,12,2],concha:['Bahía Concha',400,10,2]};
+const ROWS=['Primera línea (frente al mar)','Segunda línea','Tercera línea'];
+const FEST=['2026-10-12','2026-11-02','2026-11-16','2026-12-08','2026-12-25','2027-01-01','2027-01-11'];
+const DEF={res:[],n:30,cart:{},
+P:{baja:{sem:{s:3000,c:25000,e:3000,r:3000,p:20000},fin:{s:5000,c:30000,e:5000,r:5000,p:25000}},alta:{sem:{s:5000,c:30000,e:5000,r:5000,p:35000},fin:{s:7000,c:40000,e:7000,r:7000,p:40000}}},
+I:[[1,'Almuerzos','Pescado frito, arroz de coco y patacón',32000,1],[2,'Almuerzos','Mojarra con ensalada',30000,1],[3,'Almuerzos','Arroz con mariscos',35000,0],
+[4,'Bebidas','Agua',3000],[5,'Bebidas','Gaseosa',4000],[6,'Bebidas','Cerveza',6000],[7,'Bebidas','Jugo natural',7000],
+[8,'Mecatos','Patacones con queso',8000],[9,'Mecatos','Empanadas',4000],[10,'Mecatos','Fruta picada',7000],
+[11,'Toallas','Toalla de playa',20000],[12,'Sombreros','Sombrero de playa',18000],[13,'Productos para la piel','Protector solar FPS 50',25000],
+[14,'Vestidos de baño','Vestido de baño',45000],[15,'Cava de icopor','Alquiler de cava con hielo',15000],
+[16,'Atracciones','Moto acuática (15 min)',90000],[17,'Atracciones','Inflable acuático',25000],[18,'Atracciones','El gusanito (por persona)',30000]]};
+let S;try{S=JSON.parse(localStorage.getItem('playas-v2'))}catch(_){}S=S||JSON.parse(JSON.stringify(DEF));
+const save=()=>{try{localStorage.setItem('playas-v2',JSON.stringify(S))}catch(_){}};
+let sel=[];
+function ctx(){const v=$('#f').value,[y,m,d]=v.split('-').map(Number),dt=new Date(y,m-1,d),n=m*100+d;
+const t=(n>=1116||n<=214||(n>=616&&n<=719))?'alta':'baja',k=(dt.getDay()%6==0||FEST.includes(v))?'fin':'sem';return{t,k,p:S.P[t][k],v}}
+const taken=()=>{const c=ctx(),s=new Set();S.res.filter(r=>r.pl==$('#pl').value&&r.f==c.v).forEach(r=>r.slots.forEach(x=>s.add(x)));return s};
+function map(){const tp=$('#tp').value;$('#mapc').style.display=tp=='s'?'none':'';$('#qw').style.display=tp=='s'?'':'none';$('#xw').style.display=tp=='c'?'':'none';
+const[n,len,c,nr]=PL[$('#pl').value],tk=taken();let h='<div class="sea">🌊 Mar Caribe · '+e(n)+' (~'+len+' m de playa)</div><div class="sand">';
+for(let i=0;i<nr;i++){h+='<div class="rl">'+ROWS[i]+'</div><div class="row">';for(let j=0;j<c;j++){const id='ABC'[i]+(j+1),o=tk.has(id);
+h+='<button class="s '+(o?'occ':sel.includes(id)?'sel':'free')+'" '+(o?'disabled':'')+' data-id="'+id+'" aria-label="Puesto '+id+(o?' ocupado':' disponible')+', a '+Math.round(j*len/c)+' metros del extremo norte">'+id+'<small>'+Math.round(j*len/c)+' m</small></button>'}h+='</div>'}
+$('#map').innerHTML=h+'</div>';$('#cnt').textContent=(nr*c-tk.size)+' libres de '+nr*c;
+$('#mnote').textContent='La posición (m) se cuenta desde el extremo norte de la playa. Toca los puestos que quieras.';sum()}
+function calc(){const c=ctx(),p=c.p,tp=$('#tp').value,nt=$('#nt').checked,L=[];let q;
+if(tp=='s'){q=+$('#qt').value||0;L.push([q+' silla(s) × '+m$(p.s),q*p.s]);if(nt)L.push(['Recargo hasta 4 a. m.',q*p.r])}
+else if(tp=='c'){const n=sel.length,x=n*(+$('#ex').value||0);L.push([n+' carpa(s) con 3 sillas × '+m$(p.c),n*p.c]);if(x)L.push([x+' silla(s) adicional(es)',x*p.e]);if(nt)L.push(['Recargo 4 a. m. ('+(3*n+x)+' sillas)',(3*n+x)*p.r])}
+else{const n=sel.length;L.push([n+' sombrilla(s) pareja × '+m$(p.p),n*p.p]);if(nt)L.push(['Recargo 4 a. m. ('+2*n+' sillas)',2*n*p.r])}
+Object.keys(S.cart).filter(i=>S.cart[i]>0).forEach(i=>{const it=S.I.find(x=>x[0]==i);if(it)L.push([S.cart[i]+' × '+it[2],S.cart[i]*it[3]])});return{L,c,tot:L.reduce((a,b)=>a+b[1],0)}}
+function sum(){const{L,c,tot}=calc(),tp=$('#tp').value;
+$('#info').innerHTML='Temporada <b>'+c.t+'</b> · '+(c.k=='fin'?'sábado, domingo o festivo':'lunes a viernes')+'. '+(tp=='s'?'Sillas: 6 a. m. a 9 p. m.':'Carpas y sombrillas: 8 a. m. a 6 p. m. (sillas hasta 9 p. m.)');
+$('#sum').innerHTML='<h3>Resumen</h3>'+L.map(l=>'<div class="it"><span>'+e(l[0])+'</span><b>'+m$(l[1])+'</b></div>').join('')+'<p>Total <span class="tot">'+m$(tot)+'</span></p>'}
+function qr(seed){let h=0;for(const ch of seed)h=(h*31+ch.charCodeAt(0))>>>0;let s='<svg viewBox="0 0 21 21" width="150" role="img" aria-label="QR de demostración"><rect width="21" height="21" fill="#fff"/>';
+for(let y=0;y<21;y++)for(let x=0;x<21;x++){const f=(x<7&&y<7)||(x>13&&y<7)||(x<7&&y>13);let on;if(f){const a=x%14,b=y%14;on=a==0||a==6||b==0||b==6||(a>1&&a<5&&b>1&&b<5)}else{h=(h*1103515245+12345)>>>0;on=(h>>16)&1}if(on)s+='<rect x="'+x+'" y="'+y+'" width="1" height="1" fill="#000"/>'}return s+'</svg>'}
+function go(){const tp=$('#tp').value,{c,tot}=calc(),dn=$('#dn').value.trim(),nm=$('#nm').value.trim(),R=$('#res'),er=m=>R.innerHTML='<p class="note" role="alert" style="color:var(--bad)">'+m+'</p>';
+if(!dn||!nm)return er('Escribe tu nombre y el número de documento.');
+if(tp!='s'&&!sel.length)return er('Elige al menos un puesto en el mapa.');
+if(tp=='s'&&!(+$('#qt').value>0))return er('Indica cuántas sillas necesitas.');
+const pg=$('#pg').value,ref='PLY-'+Date.now().toString(36).toUpperCase().slice(-6);
+S.res.push({ref,pl:$('#pl').value,f:c.v,tp,dt:$('#dt').value,dn,nm,slots:tp=='s'?[]:[...sel],q:tp=='s'?+$('#qt').value:sel.length,nt:$('#nt').checked,pg,tot,t:c.t,k:c.k,x:Object.keys(S.cart).filter(i=>S.cart[i]>0).map(i=>({i:+i,q:S.cart[i]}))});
+S.cart={};sel=[];save();
+R.innerHTML='<div class="card ok"><h3>Reserva '+ref+' registrada · '+m$(tot)+'</h3>'+(pg=='qr'?'<p>Escanea para pagar (QR de demostración):</p>'+qr(ref):pg=='ref'?'<p>Paga con el código de referencia: <b>'+ref+'</b> en tu app bancaria o corresponsal.</p>':'<p>Paga en efectivo en el punto de recaudo de '+e(PL[$('#pl').value][0])+' presentando tu documento y el código <b>'+ref+'</b>.</p>')+'</div>';map();extras();stats()}
+function items(filter,id){const cats=[...new Set(S.I.filter(filter).map(i=>i[1]))];
+$(id).innerHTML=cats.map(c=>'<div class="card"><h2>'+e(c)+'</h2>'+S.I.filter(i=>i[1]==c).map(i=>'<div class="it"><span>'+e(i[2])+(i[4]===1?' <span class="pill">con bebida</span>':'')+'<br><b>'+m$(i[3])+'</b></span><span class="q"><button data-m="'+i[0]+'" aria-label="Quitar">−</button><b>'+(S.cart[i[0]]||0)+'</b><button data-p="'+i[0]+'" aria-label="Agregar">+</button></span></div>').join('')+'</div>').join('')+'<p class="note">Lo que agregues se suma al resumen de tu reserva.</p>'}
+const extras=()=>{items(i=>i[1]!='Atracciones','#v-x');items(i=>i[1]=='Atracciones','#v-a');sum()};
+function stats(){const R=S.res,tot=R.reduce((a,r)=>a+r.tot,0),by=f=>{const o={};R.forEach(r=>{const k=f(r);o[k]=(o[k]||0)+r.tot});return o};
+const bars=(o,lab)=>{const mx=Math.max(1,...Object.values(o));return Object.entries(o).map(([k,v])=>'<div class="br"><span>'+e(lab(k))+'</span><div class="bar" style="width:'+v/mx*100+'%"></div><b>'+m$(v)+'</b></div>').join('')||'<p class="note">Aún no hay reservas.</p>'};
+const cnt={};R.forEach(r=>cnt[r.tp]=(cnt[r.tp]||0)+1);const nm={s:'Solo sillas',c:'Carpa',p:'Pareja'};
+$('#v-s').innerHTML='<div class="card"><h2>Resumen general</h2><p><span class="tot">'+m$(tot)+'</span> en '+R.length+' reservas · efectivo: '+R.filter(r=>r.pg=='ef').length+' · virtual: '+R.filter(r=>r.pg!='ef').length+'</p></div><div class="card"><h2>Ingresos por playa</h2>'+bars(by(r=>r.pl),k=>PL[k][0])+'</div><div class="card"><h2>Ingresos por temporada</h2>'+bars(by(r=>r.t+(r.k=='fin'?' · fin de semana/festivo':' · lun-vie')),k=>k)+'</div><div class="card"><h2>Reservas por servicio</h2>'+(Object.keys(cnt).map(k=>'<div class="it"><span>'+nm[k]+'</span><b>'+cnt[k]+'</b></div>').join('')||'<p class="note">Aún no hay reservas.</p>')+'</div><div class="card"><h2>Últimas reservas</h2>'+R.slice(-8).reverse().map(r=>'<div class="it"><span>'+r.ref+' · '+e(r.nm)+' · '+PL[r.pl][0]+' · '+r.f+'</span><b>'+m$(r.tot)+'</b></div>').join('')+'</div>'}
+function admin(){let h='<div class="card"><h2>Tarifas por temporada y día</h2><p class="note">Para empresas locales o asesores con convenio. Los cambios se aplican a las nuevas reservas.</p><div style="overflow-x:auto"><table><tr><th></th><th>Silla</th><th>Carpa (3 sillas)</th><th>Silla adic.</th><th>Recargo 4 a. m.</th><th>Pareja</th></tr>';
+for(const t of['baja','alta'])for(const k of['sem','fin'])h+='<tr><td>'+t+' · '+(k=='fin'?'sáb/dom/festivo':'lun-vie')+'</td>'+['s','c','e','r','p'].map(f=>'<td><input type="number" min="0" step="500" value="'+S.P[t][k][f]+'" data-t="'+t+'" data-k="'+k+'" data-f="'+f+'"></td>').join('')+'</tr>';
+h+='</table></div></div><div class="card"><h2>Productos, platos y atracciones</h2>'+S.I.map(i=>'<div class="it"><span>'+e(i[1])+' · '+e(i[2])+(i[4]===1?' (con bebida)':'')+'</span><span class="q"><input type="number" style="width:110px" min="0" step="500" value="'+i[3]+'" data-ip="'+i[0]+'"><button data-d="'+i[0]+'" aria-label="Eliminar">✕</button></span></div>').join('')+
+'<h3>Agregar</h3><div class="g"><label>Categoría<input id="ac" list="cl" placeholder="Almuerzos, Bebidas…"></label><datalist id="cl">'+[...new Set(S.I.map(i=>i[1]))].map(c=>'<option value="'+e(c)+'">').join('')+'</datalist><label>Nombre<input id="an"></label><label>Precio<input id="ap" type="number" min="0"></label></div><p><label><input type="checkbox" id="ab"> El plato incluye bebida</label></p><button class="p" id="aa">Agregar</button></div>';
+$('#v-c').innerHTML=h}
+document.addEventListener('click',ev=>{const b=ev.target.closest('button');if(!b)return;
+if(b.dataset.v){document.querySelectorAll('nav button,section').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#v-'+b.dataset.v).classList.add('on');return}
+if(b.dataset.id){const i=sel.indexOf(b.dataset.id);i<0?sel.push(b.dataset.id):sel.splice(i,1);map()}
+if(b.dataset.p||b.dataset.m){const i=b.dataset.p||b.dataset.m;S.cart[i]=Math.max(0,(S.cart[i]||0)+(b.dataset.p?1:-1));save();extras()}
+if(b.dataset.d){S.I=S.I.filter(x=>x[0]!=b.dataset.d);save();admin();extras()}
+if(b.id=='aa'){const c=$('#ac').value.trim(),n=$('#an').value.trim(),p=+$('#ap').value;if(c&&n&&p>=0){S.I.push([++S.n+100,c,n,p,$('#ab').checked?1:0]);save();admin();extras()}}
+if(b.id=='go')go()});
+document.addEventListener('change',ev=>{const i=ev.target.dataset;if(i.f){S.P[i.t][i.k][i.f]=+ev.target.value;save();sum()}if(i.ip){S.I.find(x=>x[0]==i.ip)[3]=+ev.target.value;save();extras()}});
+['pl','f','tp'].forEach(i=>$('#'+i).addEventListener('change',()=>{sel=[];map()}));['qt','ex','nt','pg'].forEach(i=>$('#'+i).addEventListener('input',sum));
+$('#pl').innerHTML=Object.entries(PL).map(([k,v])=>'<option value="'+k+'">'+v[0]+'</option>').join('');
+const t=new Date();$('#f').value=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
+map();extras();stats();admin();
+</script></body></html>
